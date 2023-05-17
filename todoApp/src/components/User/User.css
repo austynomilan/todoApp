@@ -1,0 +1,14 @@
+.UserHolder{
+    display: flex;
+   width: 100%;
+   justify-content: space-between;
+   align-items: center;
+   border-bottom: 1px solid gray;
+}
+
+.UserHolder span{
+    float: right;
+    margin-top: -1.2rem;
+    color: #ff8fab;
+    padding-bottom: 1rem;
+}

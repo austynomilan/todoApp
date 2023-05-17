@@ -1,0 +1,28 @@
+.AddNewTodo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    border-bottom: 1px solid gray;
+}
+
+.AddNewTodo .btn{
+    background-color: #0077b6;
+    color: #fff;
+    font-size: 1rem;
+    border: 1px solid #0077b6;
+    font-weight: 500;
+    cursor: pointer;
+    padding: .8rem 5rem;
+    border-radius: 3px;
+    margin: .9rem 0;
+}
+
+.AddNewTodo .btn:hover{
+    background-color: #00b4d8;
+    border-color: #00b4d8;
+}
+
+.AddNewTodo .btn:active{
+    transform: scale(0.98);
+}

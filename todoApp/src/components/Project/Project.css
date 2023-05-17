@@ -1,0 +1,31 @@
+.project{
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.title{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.controls{
+    display: flex;
+    width: 45%;
+    justify-content: space-around;
+}
+
+.projectType .projectCount:not(:last-child){
+    margin-bottom: -2.2rem;
+}
+
+.projectCount h5{
+    background-color: gray;
+    height: 1.5rem;
+    width: 1.5rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

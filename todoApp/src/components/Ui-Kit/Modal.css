@@ -1,0 +1,20 @@
+.modalContainer{
+    background: rgba(0, 0, 0, 0.8);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mainModal{
+    width: 20rem;
+    height: 20rem;
+    left: 50%;
+    top: 30%;
+    background-color: #fff;   
+}

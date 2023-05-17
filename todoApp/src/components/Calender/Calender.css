@@ -1,0 +1,40 @@
+.calenderHolder{
+    border-bottom: 1px solid gray;
+    width: 100%;
+}
+
+.titles{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.calender{
+    display: flex;
+    align-items: center;
+}
+
+.calender .calenderIcon{
+    margin-right: 0.4rem;
+}
+
+.counter{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.countDays .counts:not(:last-child){
+margin-bottom: -2.2rem;
+}
+
+.countDays h5{
+    background-color: gray;
+    height: 1.5rem;
+    width: 1.5rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

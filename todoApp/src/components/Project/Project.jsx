@@ -2,8 +2,12 @@ import './Project.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowUp, faGamepad, faPencil, faPizzaSlice, faPlus } from '@fortawesome/free-solid-svg-icons'
 import Counter from '../Ui-Kit/Counter'
+import AddNewProject from './AddNewProject'
+import { useState } from 'react'
 
 export default function Project() {
+  const [show, setShow] = useState(true)
+  const projectType = ['work', 'other', 'personal']
   return (
     <div className='projectHolder'>
       <div className="title">
@@ -13,15 +17,15 @@ export default function Project() {
         </div>
         <div className="controls">
             <FontAwesomeIcon icon={faPencil} />
-            <FontAwesomeIcon icon={faPlus} />
-            <FontAwesomeIcon icon={faArrowUp} />
+            <AddNewProject />
+            <FontAwesomeIcon icon={faArrowUp} onClick={() => setShow(false)}/>
         </div>
       </div>
 
       <div className="projectType">
-        <Counter className='projectCount'><p>work</p> <h5>1</h5></Counter>
-        <Counter className='projectCount'><p>other</p> <h5>1</h5></Counter>
-        <Counter className='projectCount'> <p>personal</p> <h5>1</h5></Counter>
+      {projectType.map(projects=>(
+       <Counter className='projectCount' key={projects}><p>{projects}</p> <h5>1</h5></Counter> 
+      ))}
       </div>
     </div>
   )

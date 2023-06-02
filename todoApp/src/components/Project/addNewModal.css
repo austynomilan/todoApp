@@ -1,0 +1,47 @@
+.addNewModal{
+    position: absolute;
+    width: 15rem;
+    height: auto;
+    background: #fff;
+    top: 45%;
+    left: 40%;
+    padding: 3px;
+    border-radius: 4px;
+}
+
+.addNewModal input{
+    width: 100%;
+    box-sizing: border-box;
+   border: 0;
+   border-bottom: 1px solid blue;
+   font-size: 1rem;
+   margin-bottom: .5rem;
+}
+
+.addNewModal input:focus{
+    outline: 0;
+}
+
+.addNewModal button{
+    width:  50%;
+    padding:  .6rem 0;
+    color: #fff;
+    font-size: .8rem;
+    border: 0;
+    cursor: pointer;
+}
+.addNewModal button:active{
+    transform: scale(.98);
+}
+
+.addNew_controls :nth-child(1){
+    background-color: grey;
+   
+}
+
+.addNew_controls :nth-child(2){
+    background-color: blue;
+}
+
+
+

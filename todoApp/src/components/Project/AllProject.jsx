@@ -12,8 +12,8 @@ export default function AllProject({ projects, edit, setEdit }) {
         <div>
           {edit ? (
             <div className='editBtn'>
-              <span><FontAwesomeIcon icon={faPencil} /> </span>
-              <span><FontAwesomeIcon icon={faClose} onClick={()=>setEdit(false)} /></span>
+              <span className='span1' ><FontAwesomeIcon icon={faPencil} /> </span>
+              <span className='span2' onClick={()=>setEdit(!edit)}><FontAwesomeIcon icon={faClose} onClick={()=>setEdit(false)} /></span>
             </div>
           ) : projects.numOfTodo === 0 ? (
             ''

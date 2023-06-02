@@ -7,7 +7,7 @@
   height: 100vh;
 }
 
-.App::after{
+.App::before{
   content: '';
   background: url(./assets/images/forest.jpg);
   width: 100%;

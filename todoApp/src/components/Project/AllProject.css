@@ -1,0 +1,25 @@
+.editBtn span{
+    height: 15px;
+    width: 15px;
+    background-color:   grey;
+    border-radius: 50%;
+    padding: 5px;
+    font-size: 8px;
+    margin: 0 5px;
+    font-weight: 700;
+}
+
+.editBtn .span1:hover{
+    background-color: #fff;
+    color: green;
+}
+
+.editBtn .span2:hover{
+    background-color: #fff;
+    color: red;
+}
+
+.projectCount{
+    margin-bottom: -1.8rem;
+    cursor: pointer;
+}

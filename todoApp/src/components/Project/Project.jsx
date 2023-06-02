@@ -15,6 +15,8 @@ export default function Project() {
   ]
   const [edit, setEdit] = useState(false)
   const pencilColor = edit ? "green" : "#000"
+
+
   return (
     <div className='projectHolder'>
       <div className="title">
@@ -23,7 +25,9 @@ export default function Project() {
         <h2>Projects</h2>
         </div>
         <div className="controls">
-            { show && <FontAwesomeIcon icon={faPencil} color={pencilColor} onClick={()=> setEdit(!edit)} />}
+            { show && projectType.length > 0 &&
+            <FontAwesomeIcon icon={faPencil} color={pencilColor} onClick={()=> setEdit(!edit)} />
+            }
              <AddNewProject />
             <FontAwesomeIcon icon={faArrowUp} onClick={() => setShow(!show)}/>
         </div>

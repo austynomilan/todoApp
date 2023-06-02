@@ -1,0 +1,24 @@
+.addNew_container{
+    position: relative;
+}
+
+h4{
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+
+.addNewProject{
+    position: absolute;
+   width: 100vw;
+   height: 100vh;
+   background: rgba(0, 0, 0, 0.9);
+   bottom: -13rem;
+   left: -11.3rem;
+   box-sizing: border-box;
+}
+
+.addNewProject h3{
+    margin-top: -.1rem;
+        
+}

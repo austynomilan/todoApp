@@ -25,3 +25,4 @@ export default function AllProject({ projects, edit, setEdit }) {
     </div>
   );
 }
+

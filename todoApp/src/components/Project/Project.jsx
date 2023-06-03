@@ -15,7 +15,7 @@ export default function Project() {
   ]
   const [edit, setEdit] = useState(false)
   const pencilColor = edit ? "green" : "#000"
-
+  const [addNewModal, setAddNewModal] = useState(false)
 
   return (
     <div className='projectHolder'>
@@ -28,7 +28,7 @@ export default function Project() {
             { show && projectType.length > 0 &&
             <FontAwesomeIcon icon={faPencil} color={pencilColor} onClick={()=> setEdit(!edit)} />
             }
-             <AddNewProject />
+             <AddNewProject addNewModal={addNewModal} setAddNewModal={setAddNewModal}/>
             <FontAwesomeIcon icon={faArrowUp} onClick={() => setShow(!show)}/>
         </div>
       </div>
@@ -41,3 +41,4 @@ export default function Project() {
     </div>
   )
 }
+

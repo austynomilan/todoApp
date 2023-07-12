@@ -5,7 +5,6 @@ import {
   faGamepad,
   faPencil,
 } from '@fortawesome/free-solid-svg-icons';
-import Counter from '../Ui-Kit/Counter';
 import AllProject from './AllProject';
 import AddNewProject from './AddNewProject';
 import { useState } from 'react';

@@ -7,8 +7,7 @@ import RenameProject from './RenameProject';
 
 
 export default function AllProject({ projects, edit, setEdit, setAddNewModal, addNewModal}) {
-  console.log(addNewModal, "test") 
-
+const [rename, setRename] = useState(false)
   return (
     <div>
       <Counter className='projectCount'>
@@ -17,7 +16,7 @@ export default function AllProject({ projects, edit, setEdit, setAddNewModal, ad
         <div>
           {edit ? (
             <div className='editBtn'>
-              <span className='span1' onClick={()=>setAddNewModal(true)}><FontAwesomeIcon icon={faPencil} /> </span>
+              <span className='span1' onClick={()=>setRename(true)}><FontAwesomeIcon icon={faPencil} /> </span>
               <span className='span2' onClick={()=>setEdit(!edit)}><FontAwesomeIcon icon={faClose} onClick={()=>setEdit(false)} /></span>
             </div>
           ) : projects.numOfTodo === 0 ? (
@@ -27,8 +26,8 @@ export default function AllProject({ projects, edit, setEdit, setAddNewModal, ad
           )}
         </div>
       </Counter>
-      {addNewModal &&
-       <RenameProject setAddNewModal={setAddNewModal} />
+      {rename &&
+       <RenameProject setRename={setRename} />
       }    
     </div>
   );

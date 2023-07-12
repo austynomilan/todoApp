@@ -2,7 +2,7 @@ import { useState } from "react"
 import AddNewModal from "./addNewModal"
 import './RenameProject.css'
 
-export default function RenameProject({addNewModal, setAddNewModal}) {
+export default function RenameProject({setRename}) {
 const [projectName, setProjectName] = useState('')
 
 
@@ -12,9 +12,9 @@ const [projectName, setProjectName] = useState('')
             value={projectName}
             setValue={setProjectName}
             heading={'Edit Project!'}
+            func={()=>setRename(false)}
             submissionText={'Confirm'}
-            setAddNewModal={setAddNewModal}
-            addNewModal ={addNewModal}
+            cancel={'Cancel'}
           />
         </div>
   )

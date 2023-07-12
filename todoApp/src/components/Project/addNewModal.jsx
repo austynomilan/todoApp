@@ -1,7 +1,6 @@
 import './addNewModal.css';
 
-export default function addNewModal({ heading,value,setAddNewModal,submissionText,handleSubmit,setValue }) {
-
+export default function addNewModal({ heading,value,submissionText,handleSubmit,setValue,cancel,func}) {
   
   return (
     <div className='addNewModal'>
@@ -14,7 +13,7 @@ export default function addNewModal({ heading,value,setAddNewModal,submissionTex
         autoFocus
         />
         <div className='addNew_controls'>
-          <button type='button' onClick={() => setAddNewModal(false)}>Cancel</button>
+          <button type='button' onClick={func}>{cancel}</button>
           <button>{submissionText}</button>
         </div>
       </form>

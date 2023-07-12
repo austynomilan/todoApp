@@ -20,6 +20,8 @@ export default function AddNewProject({ addNewModal, setAddNewModal }) {
             value={projectName}
             setValue={setProjectName}
             heading={'New Project!'}
+            func={()=>setAddNewModal(false)}
+            cancel={'Cancel'}
             submissionText={'+Add Project'}
             setAddNewModal={setAddNewModal}
             handleSubmit={handleSubmit}

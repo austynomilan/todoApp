@@ -1,16 +1,23 @@
-import React from 'react'
-import './addNewModal.css'
+import './addNewModal.css';
 
-export default function addNewModal({setAddNewModal}) {
+export default function addNewModal({ heading,value,setAddNewModal,submissionText,handleSubmit,setValue }) {
+
+  
   return (
     <div className='addNewModal'>
-      <h3>New Project!</h3>
-        <input type="text" placeholder='project name...'/>
-        <div className='addNew_controls'> 
-          <button onClick={()=>setAddNewModal(false)}>Cancel</button>
-          <button>+Add Project</button>
-          </div>
+      <form onSubmit={handleSubmit}>
+        <h3>{heading}</h3>
+        <input type='text' 
+        placeholder='project name...' 
+        value={value}
+        onChange={(e)=>setValue(e.target.value)}
+        autoFocus
+        />
+        <div className='addNew_controls'>
+          <button type='button' onClick={() => setAddNewModal(false)}>Cancel</button>
+          <button>{submissionText}</button>
+        </div>
+      </form>
     </div>
-  )
+  );
 }
-

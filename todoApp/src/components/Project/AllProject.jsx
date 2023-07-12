@@ -1,9 +1,14 @@
 import './AllProject.css';
+import { useState } from 'react';
 import Counter from '../Ui-Kit/Counter';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPencil, faClose } from '@fortawesome/free-solid-svg-icons'
+import RenameProject from './RenameProject';
 
-export default function AllProject({ projects, edit, setEdit }) {
+
+export default function AllProject({ projects, edit, setEdit, setAddNewModal, addNewModal}) {
+  console.log(addNewModal, "test") 
+
   return (
     <div>
       <Counter className='projectCount'>
@@ -12,7 +17,7 @@ export default function AllProject({ projects, edit, setEdit }) {
         <div>
           {edit ? (
             <div className='editBtn'>
-              <span className='span1' ><FontAwesomeIcon icon={faPencil} /> </span>
+              <span className='span1' onClick={()=>setAddNewModal(true)}><FontAwesomeIcon icon={faPencil} /> </span>
               <span className='span2' onClick={()=>setEdit(!edit)}><FontAwesomeIcon icon={faClose} onClick={()=>setEdit(false)} /></span>
             </div>
           ) : projects.numOfTodo === 0 ? (
@@ -22,6 +27,9 @@ export default function AllProject({ projects, edit, setEdit }) {
           )}
         </div>
       </Counter>
+      {addNewModal &&
+       <RenameProject setAddNewModal={setAddNewModal} />
+      }    
     </div>
   );
 }

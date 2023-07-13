@@ -23,7 +23,6 @@ export default function AddNewProject({ addNewModal, setAddNewModal }) {
             func={()=>setAddNewModal(false)}
             cancel={'Cancel'}
             submissionText={'+Add Project'}
-            setAddNewModal={setAddNewModal}
             handleSubmit={handleSubmit}
           />
         </div>

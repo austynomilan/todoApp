@@ -6,7 +6,7 @@ import { faPencil, faClose } from '@fortawesome/free-solid-svg-icons'
 import RenameProject from './RenameProject';
 
 
-export default function AllProject({ projects, edit, setEdit, setAddNewModal, addNewModal}) {
+export default function AllProject({ projects, edit, setEdit}) {
 const [rename, setRename] = useState(false)
   return (
     <div>
@@ -27,7 +27,7 @@ const [rename, setRename] = useState(false)
         </div>
       </Counter>
       {rename &&
-       <RenameProject setRename={setRename} />
+       <RenameProject setRename={setRename} projects={projects}/>
       }    
     </div>
   );

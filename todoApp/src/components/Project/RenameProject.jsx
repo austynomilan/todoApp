@@ -2,15 +2,15 @@ import { useState } from "react"
 import AddNewModal from "./addNewModal"
 import './RenameProject.css'
 
-export default function RenameProject({setRename}) {
-const [projectName, setProjectName] = useState('')
+export default function RenameProject({setRename, projects}) {
+const [newProjectName, setNProjectName] = useState(projects.name)
 
 
   return (
     <div className='RenameProject'>
           <AddNewModal
-            value={projectName}
-            setValue={setProjectName}
+            value={newProjectName}
+            setValue={setNProjectName}
             heading={'Edit Project!'}
             func={()=>setRename(false)}
             submissionText={'Confirm'}

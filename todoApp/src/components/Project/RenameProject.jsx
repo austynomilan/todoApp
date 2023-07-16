@@ -5,7 +5,6 @@ import './RenameProject.css'
 export default function RenameProject({setRename, projects}) {
 const [newProjectName, setNProjectName] = useState(projects.name)
 
-
   return (
     <div className='RenameProject'>
           <AddNewModal

@@ -22,7 +22,7 @@ export default function AddNewTodo() {
 
   return (
     <div className='AddNewTodo'>
-      <button className='btn' onClick={() => setShowModal(true)}>+ New Todo</button>
+      <button className='btn' onClick={() => setShowModal(true)}>+New Todo</button>
       <Modal className='AddNewTodo-Modal' showModal={showModal} setShowModal={setShowModal}>
       <LocalizationProvider dateAdapter={AdapterDayjs}>
          

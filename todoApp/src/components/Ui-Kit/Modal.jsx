@@ -25,12 +25,6 @@ export default function Modal({
     showModal && (
       <div className='modalContainer' ref={modalRef} onClick={closeModal}>
         <div className={classes}>
-          <FontAwesomeIcon
-            style={{ float: 'right', cursor: 'pointer', padding: '0.9rem' }}
-            icon={faClose}
-            size='2x'
-            onClick={closeModal2}
-          />
           {children}
         </div>
       </div>

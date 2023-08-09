@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { TimePicker } from '@mui/x-date-pickers/TimePicker';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import './todoForms.css';
 import {
   faBell,
   faCalendar,
@@ -22,15 +23,20 @@ export default function todoForms({
   setDay,
   time,
   setTime,
-  projects,
   showButtons = false,
+  setShowModal = true,
 }) {
   const pickersStyle = {
     width: '90%',
     marginLeft: '8px',
   };
 
- 
+  const projectType = [
+    { id: 1, name: 'Personal', numOfTodo: 0 },
+    { id: 2, name: 'Work', numOfTodo: 1 },
+    { id: 3, name: 'Other', numOfTodo: 2 },
+  ];
+
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
       <div>
@@ -71,13 +77,15 @@ export default function todoForms({
             <div className='projectSelect-title'>
               <FontAwesomeIcon icon={faPallet} /> <p>Choose a project</p>
             </div>
-            { <Counter>
-                {projects.map((project) => (
+            {
+              <Counter>
+                {projectType.map((project) => (
                   <div className='project' key={project.id}>
                     {project.name}
                   </div>
                 ))}
-              </Counter> }
+              </Counter>
+            }
           </div>
 
           {showButtons && (
@@ -88,10 +96,13 @@ export default function todoForms({
                     float: 'right',
                     cursor: 'pointer',
                     padding: '0.9rem',
+                    position: 'absolute',
+                    top: '18%',
+                    left: '57%',
                   }}
                   icon={faClose}
                   size='2x'
-                //   onClick={closeModal2}
+                  onClick={() => setShowModal(false)}
                 />
               </div>
 

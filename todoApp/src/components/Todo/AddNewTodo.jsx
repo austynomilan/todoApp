@@ -4,14 +4,9 @@ import './AddNewTodo.css';
 import Modal from '../Ui-Kit/Modal';
 
 
-export default function AddNewTodo() {
+export default function AddNewTodo({projectType}) {
  
   const [showModal, setShowModal] = useState(false);
-  const projectType = [
-    { id: 1, name: 'Personal', numOfTodo: 0 },
-    { id: 2, name: 'Work', numOfTodo: 1 },
-    { id: 3, name: 'Other', numOfTodo: 2 },
-  ];
   const [text, setText] = useState('');
   const [day, setDay] = useState(null);
   const [time, setTime] = useState(null);
@@ -29,8 +24,9 @@ export default function AddNewTodo() {
     setDay={setDay}
     time={time}
     setTime={setTime}
-    projects={projectType}
+    projectType={projectType}
     showButtons={true}
+    setShowModal = {setShowModal}
     />
       </Modal>
     </div>

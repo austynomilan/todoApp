@@ -1,18 +1,3 @@
-form h5{
-    font-size: 1rem;
-    font-weight: 700;
-}
-
-
-.AddNewTodo{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    border-bottom: 1px solid gray;
-    position: relative;
-}
-
 .AddNewTodo .btn{
     background-color: #0077b6;
     color: #fff;
@@ -44,60 +29,11 @@ form input{
     box-sizing: border-box;
     height: 1.5rem;
     border: 0;
-    border-bottom: 1px solid gray;
+    border-bottom: 1px solid #0077b6;
     margin-bottom: .5rem;
     font-size: 1rem;
 }
 
 form input:focus{
     outline: 0;
-}
-
-form .notice{
-    font-size: .8rem;
-    margin-bottom: 1rem;
-}
-
-form .inputControl{
-    margin-left: 1rem;
-}
-
-.date{
-    display: flex;
-    margin-bottom: .5rem;
-}
-
-.projectSelect .projectSelect-title{
-   display: flex;
-   align-items:center ;
-}
-
-.projectSelect .projectSelect-title p{
-    margin-left: 10px;
-}
-
-form .project{
-    padding: .5rem 2rem;
-    width: 5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 4px;
-}
-
-form .project.active{
-    background-color: #0077b6;
-    border-color: #0077b6;
-}
-
-.submit{
-    width: 106%;
-    background-color: #0077b6;
-    padding: .5rem 2rem;
-    border-color: #0077b6;
-    position: relative;
-    bottom: -1.21rem;
-    left: -.5rem;
-    color: #fff;
-    font-weight: 700;
 }

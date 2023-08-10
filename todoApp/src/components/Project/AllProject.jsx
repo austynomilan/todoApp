@@ -1,17 +1,22 @@
 import './AllProject.css';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import Counter from '../Ui-Kit/Counter';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPencil, faClose } from '@fortawesome/free-solid-svg-icons'
+import {TodoContext} from '../../Context'
 import RenameProject from './RenameProject';
 
 
 export default function AllProject({ projects, edit, setEdit}) {
+const {setSelectedProject} = useContext(TodoContext)
+
 const [rename, setRename] = useState(false)
   return (
     <div>
       <Counter className='projectCount'>
-        <p>{projects.name}</p>
+        <p
+        onClick={()=>setSelectedProject(projects.name)}
+        >{projects.name}</p>
 
         <div>
           {edit ? (

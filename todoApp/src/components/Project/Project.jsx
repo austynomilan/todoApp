@@ -11,11 +11,13 @@ import { useState } from 'react';
 
 export default function Project() {
   const [show, setShow] = useState(true);
+
   const projectType = [
     { id: 1, name: 'Personal', numOfTodo: 0 },
     { id: 2, name: 'Work', numOfTodo: 1 },
     { id: 3, name: 'Other', numOfTodo: 2 },
   ];
+  
   const [edit, setEdit] = useState(false);
   const pencilColor = edit ? 'green' : '#000';
   const [addNewModal, setAddNewModal] = useState(false);

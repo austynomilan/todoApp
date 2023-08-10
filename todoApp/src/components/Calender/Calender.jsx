@@ -1,9 +1,13 @@
 import './Calender.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendar, faArrowUp } from '@fortawesome/free-solid-svg-icons';
+import { TodoContext } from '../../Context';
 import Counter from '../Ui-Kit/Counter';
+import { useContext } from 'react';
 
 export default function Calender() {
+  const { setSelectedProject } = useContext(TodoContext);
+
   const calenderItems = ['today', 'next 7 days', 'all days'];
   return (
     <div className='calenderHolder'>
@@ -18,7 +22,8 @@ export default function Calender() {
       <div className='countDays'>
         {calenderItems.map((moments) => (
           <Counter className='counts' key={moments}>
-            <p>{moments}</p> <h5>1</h5>
+            <p onClick={() => setSelectedProject(moments)}>{moments}</p>{' '}
+            <h5>1</h5>
           </Counter>
         ))}
       </div>

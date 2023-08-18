@@ -11,8 +11,11 @@ export default function AddNewTodo({ projectType }) {
   const [time, setTime] = useState(null);
 
 const { setSelectedProject } = useContext(TodoContext);
+const [todoProject, setTodoProject] = useState(() => setSelectedProject);
 
-
+useEffect(() => {
+  setTodoProject(setSelectedProject)
+})
 
   return (
     <div className='AddNewTodo'>
@@ -35,6 +38,9 @@ const { setSelectedProject } = useContext(TodoContext);
           projectType={projectType}
           showButtons={true}
           setShowModal={setShowModal}
+          setTodoProject = {setTodoProject}
+          todoProject ={todoProject}
+
         />
       </Modal>
     </div>

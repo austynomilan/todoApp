@@ -23,10 +23,12 @@ export default function todoForms({
   day,
   setDay,
   time,
+  setTodoProject,
+  todoProject,
   setTime,
   showButtons = false,
   setShowModal = true,
-}) {
+  }) {
   const pickersStyle = {
     width: '90%',
     marginLeft: '8px',
@@ -40,7 +42,7 @@ export default function todoForms({
 
   const { setSelectedProject } = useContext(TodoContext);
 
-  const [todoProject, setTodoProject] = useState(() => setSelectedProject);
+  // const [todoProject, setTodoProject] = useState(() => setSelectedProject);
  
    return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>

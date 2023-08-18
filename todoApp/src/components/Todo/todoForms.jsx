@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { TimePicker } from '@mui/x-date-pickers/TimePicker';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { TodoContext } from '../../Context';
 import './todoForms.css';
 import {
   faBell,
@@ -37,7 +38,11 @@ export default function todoForms({
     { id: 3, name: 'Other', numOfTodo: 2 },
   ];
 
-  return (
+  const { setSelectedProject } = useContext(TodoContext);
+
+  const [todoProject, setTodoProject] = useState(() => setSelectedProject);
+ 
+   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
       <div>
         <form onSubmit={handleSubmit} className='todoForm'>
@@ -79,11 +84,20 @@ export default function todoForms({
             </div>
             {
               <Counter>
-                {projectType.map((project) => (
-                  <div className='project' key={project.id}>
+                { projectType.length > 0 ?                
+                projectType.map((project) => (
+                  <div
+                    className={`project ${
+                      project.name === todoProject ? 'active' : ''
+                    }`}
+                    onClick={() => setTodoProject(project.name)}
+                    key={project.id}
+                  >
                     {project.name}
-                  </div>
-                ))}
+                  </div>))
+                  :
+                  <h5 className='noProject'>Please add a project before processing!</h5>
+                  }
               </Counter>
             }
           </div>

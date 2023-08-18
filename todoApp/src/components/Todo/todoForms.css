@@ -63,3 +63,8 @@ form .project.active{
     color: #fff;
     font-weight: 700;
 }
+.noProject{
+    color: red;
+    padding-top: .2rem;
+    margin: auto;
+}

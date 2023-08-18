@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import TodoForms from './todoForms';
+import { TodoContext } from '../../Context';
 import './AddNewTodo.css';
 import Modal from '../Ui-Kit/Modal';
 
@@ -8,6 +9,10 @@ export default function AddNewTodo({ projectType }) {
   const [text, setText] = useState('');
   const [day, setDay] = useState(null);
   const [time, setTime] = useState(null);
+
+const { setSelectedProject } = useContext(TodoContext);
+
+
 
   return (
     <div className='AddNewTodo'>

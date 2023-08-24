@@ -10,12 +10,12 @@ export default function AddNewTodo({ projectType }) {
   const [day, setDay] = useState(null);
   const [time, setTime] = useState(null);
 
-const { setSelectedProject } = useContext(TodoContext);
-const [todoProject, setTodoProject] = useState(() => setSelectedProject);
+const { selectedProject } = useContext(TodoContext);
+const [todoProject, setTodoProject] = useState(() => selectedProject);
 
 useEffect(() => {
-  setTodoProject(setSelectedProject)
-})
+  setTodoProject(selectedProject)
+}, [selectedProject])
 
   return (
     <div className='AddNewTodo'>

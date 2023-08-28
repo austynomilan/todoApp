@@ -40,10 +40,6 @@ export default function todoForms({
     { id: 3, name: 'Other', numOfTodo: 2 },
   ];
 
-  const { setSelectedProject } = useContext(TodoContext);
-
-  // const [todoProject, setTodoProject] = useState(() => setSelectedProject);
- 
    return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
       <div>
@@ -98,7 +94,7 @@ export default function todoForms({
                     {project.name}
                   </div>))
                   :
-                  <h5 className='noProject'>Please add a project before processing!</h5>
+                  <h5 className='noProject'>Please add a project before proceeding!</h5>
                   }
               </Counter>
             }
@@ -113,8 +109,8 @@ export default function todoForms({
                     cursor: 'pointer',
                     padding: '0.9rem',
                     position: 'absolute',
-                    top: '18%',
-                    left: '57%',
+                    top: '19%',
+                    left: '58%',
                   }}
                   icon={faClose}
                   size='2x'

@@ -1,3 +1,4 @@
+import { useState, useContext } from 'react';
 import './Project.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -7,16 +8,21 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import AllProject from './AllProject';
 import AddNewProject from './AddNewProject';
-import { useState } from 'react';
+import { TodoContext } from '../../Context';
+
+
 
 export default function Project() {
   const [show, setShow] = useState(true);
 
-  const projectType = [
-    { id: 1, name: 'Personal', numOfTodo: 0 },
-    { id: 2, name: 'Work', numOfTodo: 1 },
-    { id: 3, name: 'Other', numOfTodo: 2 },
-  ];
+  const {projectType} = useContext(TodoContext)
+  console.log(projectType)
+
+  // const projectType = [
+  //   { id: 1, name: 'Personal', numOfTodo: 0 },
+  //   { id: 2, name: 'Work', numOfTodo: 1 },
+  //   { id: 3, name: 'Other', numOfTodo: 2 },
+  // ];
   
   const [edit, setEdit] = useState(false);
   const pencilColor = edit ? 'green' : '#000';

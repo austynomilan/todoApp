@@ -24,7 +24,6 @@ export default function useFetchProjects(todos) {
           }
         });
         setProjects(projectLists);
-        console.log(projectLists)
       }
   
       fetchProjects();

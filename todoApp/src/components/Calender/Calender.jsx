@@ -2,13 +2,13 @@ import './Calender.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendar, faArrowUp } from '@fortawesome/free-solid-svg-icons';
 import { TodoContext } from '../../Context';
+import calenderItems from './Constant';
 import Counter from '../Ui-Kit/Counter';
 import { useContext } from 'react';
 
 export default function Calender() {
   const { setSelectedProject } = useContext(TodoContext);
 
-  const calenderItems = ['today', 'next 7 days', 'all days'];
   return (
     <div className='calenderHolder'>
       <div className='titles'>

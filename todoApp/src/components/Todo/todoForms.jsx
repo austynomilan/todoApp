@@ -18,14 +18,13 @@ import { faClose } from '@fortawesome/free-solid-svg-icons';
 export default function todoForms({
   handleSubmit,
   heading = false,
-  text,
-  setText,
-  day,
-  setDay,
-  time,
+  
+ 
+  
+  
   setTodoProject,
   todoProject,
-  setTime,
+  
   showButtons = false,
   setShowModal = true,
 }) {
@@ -35,8 +34,12 @@ export default function todoForms({
   };
 
   const { projects } = useContext(TodoContext);
-  console.log(projects)
-
+  const [text, setText] = useState('');
+  const [day, setDay] = useState(null);
+  const [time, setTime] = useState(null);
+  const handleDateChange = (date) => {
+    setDay(date);
+  };
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
       <div>
@@ -60,7 +63,7 @@ export default function todoForms({
               <DatePicker
                 sx={pickersStyle}
                 value={day}
-                onChange={(day) => setDay(day)}
+                onChange={handleDateChange}
                 orientation='portrait'
               />
             </div>
@@ -119,7 +122,7 @@ export default function todoForms({
               </div>
 
               <div className='confirm'>
-                <button className='submit'>+Add Todo</button>
+                <button className='submit' onClick={()=>{handleSubmit}} >+Add Todo</button>
               </div>
             </div>
           )}

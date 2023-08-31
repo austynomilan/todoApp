@@ -24,10 +24,10 @@ const [rename, setRename] = useState(false)
               <span className='span1' onClick={()=>setRename(true)}><FontAwesomeIcon icon={faPencil} /> </span>
               <span className='span2' onClick={()=>setEdit(!edit)}><FontAwesomeIcon icon={faClose} onClick={()=>setEdit(false)} /></span>
             </div>
-          ) : projects.numOfTodo === 0 ? (
+          ) : projects.numOfTodos === 0 ? (
             ''
           ) : (
-            <h5>{projects.numOfTodo}</h5>
+            <h5>{projects.numOfTodos}</h5>
           )}
         </div>
       </Counter>

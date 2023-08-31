@@ -14,13 +14,9 @@ import { TodoContext } from '../../Context';
 
 export default function Project() {
   const [show, setShow] = useState(true);
-
+  const { projects } = useContext(TodoContext)
   
-  const projectType = [
-    { id: 1, name: 'Personal', numOfTodo: 0 },
-    { id: 2, name: 'Work', numOfTodo: 1 },
-    { id: 3, name: 'Other', numOfTodo: 2 },
-  ];
+
   
   const [edit, setEdit] = useState(false);
   const pencilColor = edit ? 'green' : '#000';
@@ -34,7 +30,7 @@ export default function Project() {
           <h2>Projects</h2>
         </div>
         <div className='controls'>
-          {show && projectType.length > 0 && (
+          {show && projects.length > 0 && (
             <FontAwesomeIcon
               icon={faPencil}
               color={pencilColor}
@@ -50,12 +46,12 @@ export default function Project() {
       </div>
 
       <div className='projectType'>
-        {projectType.map(
-          (projects) =>
+        {projects.map(
+          (project) =>
             show && (
               <AllProject
-                key={projects.id}
-                projects={projects}
+                key={project.id}
+                projects={project}
                 edit={edit}
                 setEdit={setEdit}
                 setAddNewModal={setAddNewModal}

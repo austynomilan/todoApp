@@ -28,19 +28,16 @@ export default function todoForms({
   setTime,
   showButtons = false,
   setShowModal = true,
-  }) {
+}) {
   const pickersStyle = {
     width: '90%',
     marginLeft: '8px',
   };
 
-  const projectType = [
-    { id: 1, name: 'Personal', numOfTodo: 0 },
-    { id: 2, name: 'Work', numOfTodo: 1 },
-    { id: 3, name: 'Other', numOfTodo: 2 },
-  ];
+  const { projects } = useContext(TodoContext);
+  console.log(projects)
 
-   return (
+  return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
       <div>
         <form onSubmit={handleSubmit} className='todoForm'>
@@ -82,20 +79,23 @@ export default function todoForms({
             </div>
             {
               <Counter>
-                { projectType.length > 0 ?                
-                projectType.map((project) => (
-                  <div
-                    className={`project ${
-                      project.name === todoProject ? 'active' : ''
-                    }`}
-                    onClick={() => setTodoProject(project.name)}
-                    key={project.id}
-                  >
-                    {project.name}
-                  </div>))
-                  :
-                  <h5 className='noProject'>Please add a project before proceeding!</h5>
-                  }
+                {projects.length > 0 ? (
+                  projects.map((project) => (
+                    <div
+                      className={`project ${
+                        project.name === todoProject ? 'active' : ''
+                      }`}
+                      onClick={() => setTodoProject(project.name)}
+                      key={project.id}
+                    >
+                      {project.name}
+                    </div>
+                  ))
+                ) : (
+                  <h5 className='noProject'>
+                    Please add a project before proceeding!
+                  </h5>
+                )}
               </Counter>
             }
           </div>

@@ -1,52 +1,29 @@
-// import { useState, useEffect } from 'react'
-// import firebase from '../Firebase'
-// console.log(firebase)
-// export function useTodo(){
-//     const [todo, setTodo] = useState([])
+import { useEffect, useState } from 'react';
+import { dataBase } from '../Firebase';
+import { collection, getDocs } from 'firebase/firestore/lite';
 
-//    useEffect(() => {
-//     let unSubscribe = firebase
-//     .firestore()
-//     .collection('Todos')
-//     .onSnapshot(snapshot => {
-//         const data = snapshot.docs.map(doc => ({
-//             id: id.doc,
-//             ...doc.data()
-//         }))
-//         setTodo(data)
-//     })
-//     return () => unSubscribe()
-//    })
 
-//    return todo
-// }
+  export default function useFetchTodos() {
+  const [todos, setTodos] = useState([]);
 
-// export function useProject(){
-//     const [project, setProject] = useState([])
-//     function calcNumOfTodo(projectName, todo){
-//        return todos.filter(todo.projectName === projectName).length
-//     }
+  useEffect(() => {
+    async function fetchTodos() {
+      const db = dataBase; 
+      const todosCollection = collection(db, 'Todos');
+      const todosSnapshot = await getDocs(todosCollection);
+      const todosList = todosSnapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data()
+      }));
+      setTodos(todosList);
+      
+    }
 
-//    useEffect(() => {
-//     let unSubscribe = firebase
-//     .firestore()
-//     .collection('Projects')
-//     .onSnapshot( snapshot => {
-//         const data = snapshot.docs.map(doc =>{
-//             const projectName = doc.data().projectName
+    fetchTodos();
+  }, []);
 
-//             return{
-//                 id: doc.id,
-//                 name: projectName,
-//                 numOfTodo: calcNumOfTodo(projectName, todos)
-//             }
-//         })
-//         setProject(data)
-//     })
-//     return () => unSubscribe()
-//    })
+  return todos;
+}
 
-//    return project
-// }
 
-// export {useProject, useTodo}
+

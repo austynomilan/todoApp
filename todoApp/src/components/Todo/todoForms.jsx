@@ -4,6 +4,11 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { TimePicker } from '@mui/x-date-pickers/TimePicker';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import calenderItems from '../Calender/Constant';
+import { dataBase } from '../../Firebase';
+import moment from 'moment';
+import randomcolor from 'randomcolor';
+import { collection, addDoc  } from 'firebase/firestore/lite';
 import { TodoContext } from '../../Context';
 import './todoForms.css';
 import {
@@ -16,15 +21,9 @@ import Counter from '../Ui-Kit/Counter';
 import { faClose } from '@fortawesome/free-solid-svg-icons';
 
 export default function todoForms({
-  handleSubmit,
   heading = false,
-  
- 
-  
-  
   setTodoProject,
   todoProject,
-  
   showButtons = false,
   setShowModal = true,
 }) {
@@ -40,6 +39,27 @@ export default function todoForms({
   const handleDateChange = (date) => {
     setDay(date);
   };
+
+  const writeTodoData = async (text, date, day, time, todoProject) => {
+    try{
+      const db = 
+    }
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (text && !calenderItems.includes(todoProject)) {
+      function writeTodoData(text, date, day, time, todoProject) {
+        writeTodoData(text, day, time, todoProject);
+      }
+      setShowModal(false);
+      setText('');
+      setDay(new Date());
+      setTime(new DataTransfer());
+      writeTodoData();
+    }
+  };
+
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
       <div>
@@ -122,7 +142,14 @@ export default function todoForms({
               </div>
 
               <div className='confirm'>
-                <button className='submit' onClick={()=>{handleSubmit}} >+Add Todo</button>
+                <button
+                  className='submit'
+                  onClick={() => {
+                    handleSubmit;
+                  }}
+                >
+                  +Add Todo
+                </button>
               </div>
             </div>
           )}

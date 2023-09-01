@@ -8,7 +8,7 @@ import calenderItems from '../Calender/Constant';
 import { dataBase } from '../../Firebase';
 import moment from 'moment';
 import randomcolor from 'randomcolor';
-import { collection, addDoc  } from 'firebase/firestore/lite';
+import { collection, addDoc } from 'firebase/firestore/lite';
 import { TodoContext } from '../../Context';
 import './todoForms.css';
 import {
@@ -36,26 +36,41 @@ export default function todoForms({
   const [text, setText] = useState('');
   const [day, setDay] = useState(null);
   const [time, setTime] = useState(null);
+  const date = new Date();
+
   const handleDateChange = (date) => {
     setDay(date);
   };
 
   const writeTodoData = async (text, date, day, time, todoProject) => {
-    try{
-      const db = 
+    try {
+      const db = dataBase;
+      const todoRef = collection(db, 'Todos');
+
+      const newTodo = {
+        text,
+        date: moment(date).format('MM/DD/YYYY'),
+        day: moment(day).format('d'),
+        time: moment(time).format('hh:mm A'),
+        checked: false,
+        color: randomcolor(),
+        projectName: todoProject,
+      };
+      await addDoc(todoRef, newTodo);
+      alert('Todo added successfully!');
+    } catch (error) {
+      console.error('Error adding todo:', error);
     }
-  }
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (text && !calenderItems.includes(todoProject)) {
-      function writeTodoData(text, date, day, time, todoProject) {
-        writeTodoData(text, day, time, todoProject);
-      }
+      writeTodoData(text, day, date, time, todoProject);
       setShowModal(false);
       setText('');
       setDay(new Date());
-      setTime(new DataTransfer());
+      setTime(new Date());
       writeTodoData();
     }
   };

@@ -14,7 +14,7 @@ export default function EditTodo({ projectType }) {
         <h4>Edit Todo</h4>
       </div>
       <div className='editContainer'>
-        {/* <TodoForms
+        <TodoForms
           text={text}
           setText={setText}
           day={day}
@@ -22,7 +22,7 @@ export default function EditTodo({ projectType }) {
           time={time}
           setTime={setTime}
           projectType={projectType}
-        /> */}
+        />
       </div>
     </div>
   );

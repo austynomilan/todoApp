@@ -14,7 +14,6 @@ export default function AddNewTodo({
   handleSubmit,
 }) {
   const [showModal, setShowModal] = useState(false);
-
   const { selectedProject } = useContext(TodoContext);
   const [todoProject, setTodoProject] = useState(() => selectedProject);
 

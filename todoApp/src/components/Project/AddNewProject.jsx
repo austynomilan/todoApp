@@ -1,12 +1,31 @@
 import React, { useState } from 'react';
 import './AddNewProject.css';
 import AddNewModal from './addNewModal';
+import { dataBase } from '../../Firebase';
+import { collection, getDocs, addDoc, query, where } from 'firebase/firestore/lite';
 
 export default function AddNewProject({ addNewModal, setAddNewModal }) {
   const [projectName, setProjectName] = useState('')
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(projectName);
+    if( projectName ){
+      try{
+        const db = dataBase;
+        const projectRef = collection(db, "Projects");
+
+        const q = query(projectRef, where('name', '==', projectName));
+        const querySnapshot = await getDocs(q);
+
+        if (querySnapshot.empty){
+          await addDoc(projectRef, { name: projectName });
+        }else{
+          alert(`"${projectName}" already exits add a new project!`);
+        }
+      }catch(error){
+        console.error("Err performing session: '", error)
+      }
+    }
+
     setAddNewModal(false);
     setProjectName('');
   };
